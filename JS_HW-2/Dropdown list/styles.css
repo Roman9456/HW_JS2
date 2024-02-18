@@ -1,0 +1,7 @@
+.dropdown__list {
+    display: none;
+}
+
+.dropdown__list_active {
+    display: block;
+}
