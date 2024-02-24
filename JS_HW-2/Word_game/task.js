@@ -17,17 +17,20 @@ class Game {
   }
 
   registerEvents() {
-      document.addEventListener('keydown', (event) => {
-          const enteredSymbol = event.key.toLowerCase();
-          const currentSymbol = this.currentSymbol.textContent.toLowerCase();
+    document.addEventListener('keydown', (event) => {
+        if (event.keyCode === 17 && event.shiftKey && event.altKey) {
+            return;
+        }
 
-          if (enteredSymbol === currentSymbol) {
-              this.success();
-          } else {
-              this.fail();
-          }
-      });
-  }
+        const enteredSymbol = event.key.toLowerCase();
+        const currentSymbol = this.currentSymbol.textContent.toLowerCase();
+
+        if (enteredSymbol === currentSymbol) {
+            this.success();
+        } else {
+            this.fail();
+        }
+    });
 
   success() {
       if (this.currentSymbol.classList.contains('symbol_current')) {
